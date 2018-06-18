@@ -1,9 +1,9 @@
-package lexer_test
+package lexer
 
 import (
 	"testing"
 
-	"github.com/monkey/token"
+	"github.com/alpaca/token"
 )
 
 func TestNextToken(t *testing.T) {
@@ -24,16 +24,15 @@ func TestNextToken(t *testing.T) {
 	}
 
 	l := New(input)
-
-	for i, tt := range tests {
+	for _, tt := range tests {
 		tok := l.NextToken()
 
 		if tok.Type != tt.expectedType {
-			t.Fatalf("token type is not expected one")
+			t.Fatalf("token type is not expected one %s, %s", tok, tt)
 		}
 
 		if tok.Literal != tt.expectedLiteral {
-			t.Fatalf("token literal is not expected one")
+			t.Fatalf("token literal is not expected one", tok, tt)
 		}
 	}
 
