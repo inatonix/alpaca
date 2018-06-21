@@ -1,6 +1,6 @@
 package ast
 
-import "go/token"
+import "github.com/alpaca/token"
 
 type Node interface {
 	TokenLiteral() string
